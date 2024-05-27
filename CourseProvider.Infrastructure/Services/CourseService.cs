@@ -18,7 +18,6 @@ public class CourseService(IDbContextFactory<DataContext> contextFactory) : ICou
 {
     private readonly IDbContextFactory<DataContext> _contextFactory = contextFactory;
 
-
     public async Task<Course> CreateCourseAsync(CourseCreateRequest request)
     {
         await using var context = _contextFactory.CreateDbContext();
