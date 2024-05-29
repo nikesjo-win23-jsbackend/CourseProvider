@@ -2,7 +2,6 @@
 
 namespace CourseProvider.Infrastructure.Data.Entities;
 
-
 public class CourseEntity
 {
     [Key]
@@ -19,8 +18,8 @@ public class CourseEntity
     public string? LikesInProcent { get; set; }
     public string? Likes { get; set; }
     public string? Hours { get; set; }
-
     public virtual List<AuthorEntity>? Authors { get; set; }
     public virtual PricesEntity? Prices { get; set; }
     public virtual ContentEntity? Content { get; set; }
+    public virtual ProgramDetailItemEntity? ProgramDetails { get; set; }
 }

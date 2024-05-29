@@ -18,9 +18,10 @@ public class DataContext(DbContextOptions<DataContext> options) : DbContext(opti
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CourseEntity>().ToContainer("Courses");
-        modelBuilder.Entity<CourseEntity>().HasPartitionKey(c => c.Id);
-        modelBuilder.Entity<CourseEntity>().OwnsOne(c => c.Prices);
-        modelBuilder.Entity<CourseEntity>().OwnsMany(c => c.Authors);
-        modelBuilder.Entity<CourseEntity>().OwnsOne(c => c.Content, content => content.OwnsMany(c => c.ProgramDetails));
+        modelBuilder.Entity<CourseEntity>().HasPartitionKey(x => x.Id);
+        modelBuilder.Entity<CourseEntity>().OwnsOne(x => x.Prices);
+        modelBuilder.Entity<CourseEntity>().OwnsMany(x => x.Authors);
+        modelBuilder.Entity<CourseEntity>().OwnsOne(x => x.Content);
+        modelBuilder.Entity<CourseEntity>().OwnsOne(x => x.ProgramDetails);
     }
 }
